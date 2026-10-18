@@ -182,7 +182,7 @@
   overflow: hidden;
 }
 
-Responsive */
+/* Responsive */ 
  @media (max-width: 768px) {
   .hoverCard {
     width: 100px;
