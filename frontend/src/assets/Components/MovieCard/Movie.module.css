@@ -183,7 +183,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hoverCard {
     width: 100px;
   }
@@ -245,5 +245,60 @@
   .overview {
     margin: 0 8px 8px;
     font-size: 8px;
+  }
+} */
+
+/* fix res */
+/* Mobile specific fixes for the Card */
+@media (max-width: 768px) {
+  /* 1. Disable the hover pop-up entirely on touch devices */
+  .cardContainer:hover .hoverCard {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) scale(0.95); /* Reset to default hidden state */
+  }
+
+  /* 2. Keep the poster visible when tapped */
+  .cardContainer:hover .poster {
+    opacity: 1;
+  }
+
+  /* 3. Fix the hover card sizing just in case it accidentally shows */
+  .hoverCard {
+    display: none !important; /* Force hide on mobile */
+  }
+
+  /* 4. Adjust the base card size for mobile */
+  .cardContainer {
+    width: 100%; /* Let Swiper control the width */
+    height: auto;
+    aspect-ratio: 16 / 9; /* Keep Netflix poster ratio */
+  }
+}
+@media (max-width: 600px) {
+  /* Fix the Swiper container height so cards aren't cut off */
+  .Row :global(.swiper) {
+    height: auto; /* Let the slides dictate height */
+    padding: 0 15px; /* Reduce side padding so more cards fit */
+    overflow: visible !important;
+  }
+
+  /* Ensure slides don't stretch weirdly */
+  .Row :global(.swiper-slide) {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Make sure the navigation arrows don't overlap the whole screen */
+  .Row :global(.swiper-button-prev),
+  .Row :global(.swiper-button-next) {
+    display: none; /* Often better to hide arrows on mobile and use swiping */
+  }
+
+  /* Fix the row wrapper */
+  .cardWrapper {
+    height: auto;
   }
 }

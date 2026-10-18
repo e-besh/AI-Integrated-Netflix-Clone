@@ -22,6 +22,24 @@ function SlideShow({ title, movie }) {
               <MovieCard movie={movie} />
             </SwiperSlide>
           ))}
+          breakpoints=
+          {{
+            // when window width is >= 320px (mobile)
+            320: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            // when window width is >= 768px (tablet)
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 15,
+            },
+            // when window width is >= 1024px (desktop)
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 20,
+            },
+          }}
         </Swiper>
       </div>
     </div>
