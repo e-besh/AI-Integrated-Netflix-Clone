@@ -1,0 +1,8 @@
+.mainWrapper {
+  padding-left: 40px; /* Aligns with Netflix UI */
+  background-color: #141414;
+  overflow: hidden;
+}
+.slideShowWrapper {
+  margin-bottom: 3vw; /* Responsive spacing */
+}
